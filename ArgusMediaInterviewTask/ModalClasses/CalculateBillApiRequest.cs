@@ -9,7 +9,7 @@ namespace ArgusMediaInterviewTask.ModalClasses
     public class CalculateBillApiRequest
     {
         public List<OrderItems> Order { get; set; } = new List<OrderItems>();
-        public string Time { get; set; }
+        public string OrderTime { get; set; }
     }
 
     public class OrderItems

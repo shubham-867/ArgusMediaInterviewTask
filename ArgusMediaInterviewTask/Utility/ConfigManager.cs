@@ -19,15 +19,15 @@ namespace ArgusMediaInterviewTask.Utility
                 .Build();
         }
 
-        public string GetConfiguration(string key)
+        /// <summary>
+        /// get the key value based on key name
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string GetConfiguration(string key)
         {
             return Conf.GetValue<string>(key);
         }
-
-        public static string GetCurrentlyExecutingDirectory()
-        {
-            return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + Path.DirectorySeparatorChar;
-        }
-
+        
     }
 }

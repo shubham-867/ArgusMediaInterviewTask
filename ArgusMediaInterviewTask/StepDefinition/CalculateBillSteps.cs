@@ -15,19 +15,17 @@ namespace ArgusMediaInterviewTask.StepDefinition
     public sealed class CalculateBillSteps
     {
         private readonly CalculateBillContext _calculateBillContext;
-        private readonly ApiClient _apiClient;
-        private readonly ConfigManager _configManager;
-        public CalculateBillSteps(CalculateBillContext CalculateBillContext, ApiClient apiClient, ConfigManager config)
+        private readonly ApiClient _apiClient;        
+        public CalculateBillSteps(CalculateBillContext CalculateBillContext, ApiClient apiClient)
         {
             _calculateBillContext = CalculateBillContext;
             _apiClient = apiClient;
-            _configManager = config;
         }
 
         [Given(@"a group of (.*) people is in a restaurant")]
         public void GivenAGroupOfPeopleIsInARestaurant(int numberOfGuests)
         {
-            _calculateBillContext.NumberOfGuests = numberOfGuests;
+            _calculateBillContext.NumberOfGuests = numberOfGuests;           
         }
 
         [When(@"they order")]
@@ -42,8 +40,8 @@ namespace ArgusMediaInterviewTask.StepDefinition
         [When(@"the order is placed at ""([^""]*)""")]
         public void WhenTheOrderIsPlacedAt(string orderTime)
         {            
-            _calculateBillContext.CalculateBillApiRequest.Time = orderTime;
-            _calculateBillContext.SetTimeFlag(_calculateBillContext.CalculateBillApiRequest.Time);            
+            _calculateBillContext.CalculateBillApiRequest.OrderTime = orderTime;
+            _calculateBillContext.SetTimeFlag(_calculateBillContext.CalculateBillApiRequest.OrderTime);            
         }
 
         [Then(@"The bill should be as per the calculation ""([^""]*)""")]
@@ -52,10 +50,10 @@ namespace ArgusMediaInterviewTask.StepDefinition
             // API call to get the actual bill amount
             // commenting the below code as we don't have actual API
             #region APICall
-            //var requestPayload = JsonConvert.SerializeObject(_calculateBillContext.CalculateBillApiRequest);
-            //_apiClient.apiUrl = _configManager.GetConfiguration("CalculateBillApi");
+            var requestPayload = JsonConvert.SerializeObject(_calculateBillContext.CalculateBillApiRequest);
+            //_apiClient.ApiUrl = ConfigProperties.CalculateBillApi;
             //_apiClient.AddRequestbody(requestPayload);
-            //_calculateBillContext.ApiResponseWithHeaders = _apiClient.PostAsync();
+            //_calculateBillContext.ApiResponseWithHeaders = _apiClient.PostAsyncRequest();
             //var TotalBill = JsonConvert.DeserializeObject<CalculateBillApiResponse>(_calculateBillContext.ApiResponseWithHeaders.Content);
             #endregion
 
@@ -71,7 +69,7 @@ namespace ArgusMediaInterviewTask.StepDefinition
         public void ThenStatusCodeShouldBe(int statusCode)
         {
             // commenting the below code as we don't have actual API to get the status code.
-           // Assert.That((int)_calculateBillContext.ApiResponseWithHeaders.StatusCode, Is.EqualTo(statusCode));
+            //Assert.That((int)_calculateBillContext.ApiResponseWithHeaders.StatusCode, Is.EqualTo(statusCode));
         }
 
         [When(@"(.*) more people join the group")]
