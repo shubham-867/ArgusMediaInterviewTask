@@ -11,9 +11,9 @@
 3. **ApiFramework folder:** contains classes that have methods to make API calls
 4. **Constants folder:** Holds constants such as price of the item, discount etc.
 5. **Context class folder:** Context class for the calculate Bill step definition file
-6. **Hooks:** The hooks file is included but does not contain any logic relevant for this particular task
+6. **Hooks folder:** The hooks file.
 7. **Modal Classes folder:** contains modal classes for the calculate bill API request & response.
-8. **Utility folder:** contains config manager class used to read configuration file
+8. **Utility folder:** contains utility classes such as config manager class used to read configuration file, extent report 
 9. **config.json file:** contains configurations such as calculate Bill API url.
 
 **Framework best practices are followed as below:** 
