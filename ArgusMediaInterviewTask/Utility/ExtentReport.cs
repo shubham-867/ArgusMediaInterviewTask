@@ -12,9 +12,6 @@ namespace ArgusMediaInterviewTask.Utility
         public static ExtentTest _scenario;
         public static ExtentTest step;
 
-        //public static String dir = AppDomain.CurrentDomain.BaseDirectory;
-        //public static String testResultPath = dir.Replace("bin\\Debug\\net6.0", "TestResults");
-
         public static string testResultPath = Directory.GetParent(@"..\..\..\").FullName
              + Path.DirectorySeparatorChar + "Result"
              + Path.DirectorySeparatorChar + "Result_" + DateTime.Now.ToString("ddMMyyyy HHmmss") + ".html";
@@ -50,8 +47,6 @@ namespace ArgusMediaInterviewTask.Utility
 
         public static void CreateStepNodeTestPass(string stepType, string stepName)
         {
-            // Type type = Type.GetType($"AventStack.ExtentReports.Gherkin.Model.{stepType}");
-            // object instance = Activator.CreateInstance(type);
             if (stepType == "Given")
             {
                 _scenario.CreateNode<Given>(stepName);
@@ -70,9 +65,7 @@ namespace ArgusMediaInterviewTask.Utility
             }
         }
         public static void CreateStepNodeTestFail(string stepType, string stepName, string message)
-        {
-            //When scenario fails
-
+        {           
             if (stepType == "Given")
             {
                 _scenario.CreateNode<Given>(stepName).Fail(message);
