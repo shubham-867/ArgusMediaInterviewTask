@@ -4,6 +4,7 @@ There is a new endpoint that will calculate the total of the order, and add a 10
 
 
 #Assuming the order is placed before 7pm
+# In the 'Then' step final bill amount is given to mock the response from the API. This value is compared against the calculated bill amount produced by the code logic written in the CalculateBillContext class.
 Scenario: A group of people place an order in a restaurant
 	Given a group of 4 people is in a restaurant
 	When they order

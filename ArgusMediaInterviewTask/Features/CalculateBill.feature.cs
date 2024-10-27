@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ArgusMediaInterviewTask.Feature
+namespace ArgusMediaInterviewTask.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -35,7 +35,7 @@ namespace ArgusMediaInterviewTask.Feature
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "CalculateBill", "There is a new endpoint that will calculate the total of the order, and add a 10%" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CalculateBill", "There is a new endpoint that will calculate the total of the order, and add a 10%" +
                     " service charge on food.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -81,7 +81,7 @@ namespace ArgusMediaInterviewTask.Feature
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A group of people place an order in a restaurant", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 7
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -91,7 +91,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
+#line 9
  testRunner.Given("a group of 4 people is in a restaurant", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -106,13 +106,13 @@ this.ScenarioInitialize(scenarioInfo);
                 table1.AddRow(new string[] {
                             "drinks",
                             "4"});
-#line 9
+#line 10
  testRunner.When("they order", ((string)(null)), table1, "When ");
 #line hidden
-#line 14
- testRunner.Then("The bill should be as per the calculation \"55.4\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 15
+ testRunner.Then("The bill should be as per the calculation \"56.4\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 16
  testRunner.And("status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -128,7 +128,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A group of people place an order in a restaurant and are later joined by more peo" +
                     "ple", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 17
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -138,7 +138,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 18
+#line 19
  testRunner.Given("a group of 2 people is in a restaurant", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -153,16 +153,16 @@ this.ScenarioInitialize(scenarioInfo);
                 table2.AddRow(new string[] {
                             "drinks",
                             "2"});
-#line 19
+#line 20
  testRunner.When("they order", ((string)(null)), table2, "When ");
 #line hidden
-#line 24
+#line 25
  testRunner.And("the order is placed at \"19:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 25
+#line 26
  testRunner.Then("The bill should be as per the calculation \"23.3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 26
+#line 27
  testRunner.When("2 more people join the group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -174,16 +174,16 @@ this.ScenarioInitialize(scenarioInfo);
                 table3.AddRow(new string[] {
                             "drinks",
                             "2"});
-#line 27
+#line 28
  testRunner.And("following items are added in the order", ((string)(null)), table3, "And ");
 #line hidden
-#line 31
+#line 32
  testRunner.And("the order is placed at \"20:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 32
+#line 33
  testRunner.Then("The bill should be as per the calculation \"43.7\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 33
+#line 34
  testRunner.And("status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -199,7 +199,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A group of people place an order in a restaurant and later 1 member cancels thier" +
                     " order", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 36
+#line 37
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -209,7 +209,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 37
+#line 38
  testRunner.Given("a group of 4 people is in a restaurant", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -224,13 +224,13 @@ this.ScenarioInitialize(scenarioInfo);
                 table4.AddRow(new string[] {
                             "drinks",
                             "4"});
-#line 38
+#line 39
  testRunner.When("they order", ((string)(null)), table4, "When ");
 #line hidden
-#line 43
+#line 44
  testRunner.Then("The bill should be as per the calculation \"19.1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 44
+#line 45
  testRunner.When("1 member cancels thier order and leaves the group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -239,13 +239,13 @@ this.ScenarioInitialize(scenarioInfo);
                 table5.AddRow(new string[] {
                             "drinks",
                             "1"});
-#line 45
+#line 46
  testRunner.When("following items are removed from the order", ((string)(null)), table5, "When ");
 #line hidden
-#line 48
+#line 49
  testRunner.Then("The bill should be as per the calculation \"17.35\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 49
+#line 50
  testRunner.And("status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

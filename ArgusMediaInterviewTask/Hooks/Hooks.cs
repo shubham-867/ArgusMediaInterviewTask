@@ -7,34 +7,58 @@ namespace ArgusMediaInterviewTask.Hooks
     public sealed class Hooks
     {
         private readonly ConfigManager _configManager;
+        public ExtentReport _extentReport;
+        public ScenarioContext _context;
 
-        public Hooks(ConfigManager configManager)
+        public Hooks(ConfigManager configManager, ExtentReport extentReport, ScenarioContext context)
         {
             _configManager = configManager;
+            _extentReport = extentReport;
+            _context = context;
         }
 
-        [BeforeScenario("@tag1")]
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            ExtentReport.ExtentReportInit();
+        }
+
+        [AfterTestRun]
+        public static void AfterTestRun()
+        {
+            ExtentReport.ExtentReportTearDown();
+        }
+        [BeforeFeature]
+        public static void BeforeFeature(FeatureContext featureContext)
+        {
+            ExtentReport.CreateTest(featureContext.FeatureInfo.Title);
+        }
+
+        [BeforeScenario]
         public void BeforeScenarioWithTag()
         {
-            // Example of filtering hooks using tags. (in this case, this 'before scenario' hook will execute if the feature/scenario contains the tag '@tag1')
-            // See https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html?highlight=hooks#tag-scoping
-
-            //TODO: implement logic that has to run before executing each scenario
+            ExtentReport.CreateScenarioNode(_context.ScenarioInfo.Title);
         }
 
-        [BeforeScenario(Order = 1)]
-        public void FirstBeforeScenario()
+        //[AfterScenario]
+        //public void AfterScenario()
+        //{
+        //    //TODO: implement logic that has to run after executing each scenario
+        //}
+        [AfterStep]
+        public void AfterStep()
         {
-            // Example of ordering the execution of hooks
-            // See https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html?highlight=order#hook-execution-order
+            string stepType = _context.StepContext.StepInfo.StepDefinitionType.ToString();
+            string stepName = _context.StepContext.StepInfo.Text;
+            if (_context.TestError == null)
+            {
+                ExtentReport.CreateStepNodeTestPass(stepType, stepName);
 
-            //TODO: implement logic that has to run before executing each scenario
-        }
-
-        [AfterScenario]
-        public void AfterScenario()
-        {
-            //TODO: implement logic that has to run after executing each scenario
+            }
+            else
+            {
+                ExtentReport.CreateStepNodeTestFail(stepType, stepName, _context.TestError.Message);
+            }
         }
     }
 }
