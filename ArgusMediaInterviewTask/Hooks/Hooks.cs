@@ -6,13 +6,11 @@ namespace ArgusMediaInterviewTask.Hooks
     [Binding]
     public sealed class Hooks
     {
-        private readonly ConfigManager _configManager;
         public ExtentReport _extentReport;
         public ScenarioContext _context;
 
-        public Hooks(ConfigManager configManager, ExtentReport extentReport, ScenarioContext context)
+        public Hooks(ExtentReport extentReport, ScenarioContext context)
         {
-            _configManager = configManager;
             _extentReport = extentReport;
             _context = context;
         }
@@ -40,11 +38,6 @@ namespace ArgusMediaInterviewTask.Hooks
             ExtentReport.CreateScenarioNode(_context.ScenarioInfo.Title);
         }
 
-        //[AfterScenario]
-        //public void AfterScenario()
-        //{
-        //    //TODO: implement logic that has to run after executing each scenario
-        //}
         [AfterStep]
         public void AfterStep()
         {
