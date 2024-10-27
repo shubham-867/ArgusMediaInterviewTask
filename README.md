@@ -17,17 +17,10 @@
 9. **config.json file:** contains configurations such as calculate Bill API url.
 
 **Framework best practices are followed as below:** 
-1. Reusable steps are written in feature file
-2. Constants are maintained in a separate class for maintainability
-3. API url is fetched from config file rather than hard coding 
+1. Steps in the feature file are designed for maximum reusability.
+2. Constants are maintained in a separate class.
+3. Configurations fetched from the config file such as API url etc.
+4. Design principles such as oops principles, dependency injection, separation of concern.
 
-**Framework Design principles:**
-1. Oops principles are followed such as
-1.1. Abstraction- Logic to calculate the bill is written in the context class rather than writing in the step definition class
-1.2. Encapsulation- variables used in the calculation of the bill are defined as properties in the context class
-1.3. Inheritance - no use case in current context
-1.4. Polymorphism - no use case in current context
-2. Dependency injection is used to inject 'CalculateBillcontext' and 'ApiClient' classes into step definition class
-3. Separation of concern is followed in methods and classes
 
    
